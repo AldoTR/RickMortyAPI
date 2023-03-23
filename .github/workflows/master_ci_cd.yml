@@ -61,7 +61,7 @@ jobs:
         run: sed -i 's/{docker_user}/${{secrets.DOCKER_USER}}/g' manifests/k8s.yaml
 
       - name: update model name in k8 
-        run: sed -i 's/{model_name}/${{secrets.MODEL_NAME}}/g' manifests/k8s.yaml
+        run: sed -i 's/{model_name}/${{secrets.front-react}}/g' manifests/k8s.yaml
 
       - name: update _ by - 
         run: sed -i 's/_/-/g' manifests/k8s.yaml
@@ -80,6 +80,6 @@ jobs:
         env:
           KUBECONFIG: ${{ steps.namespace.outputs.kubeconfig }}
         with:
-          namespace: ${{secrets.OKTETO_NAMESPACE }}
+          namespace: ${{secrets.aldotr }}
           manifest: manifests/k8s.yaml
-          tag: ${{ secrets.DOCKER_USERNAME }}/${{secrets.MODEL_NAME}}:${{github.sha}}
+          tag: ${{ secrets.guachi10 }}/${{secrets.front-react}}:${{github.sha}}
