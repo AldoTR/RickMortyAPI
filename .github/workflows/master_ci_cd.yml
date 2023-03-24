@@ -1,11 +1,11 @@
-name: release CI, CD workflow 
+name: master CI, CD workflow 
 on: 
   push:
     branches: [ "master"]
   pull_request:
     branches: [ "master"]
 jobs:
-  master_ci_cd:
+  release:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
@@ -13,7 +13,7 @@ jobs:
         uses: actions/setup-node@v1
         with:
           node-version: 16.x
-      - name: npm install
+      - name: nmp install
         run: npm install
 #      - name: Test
 #        run: |
@@ -25,7 +25,7 @@ jobs:
           file_name: .env
           fail_on_empty: false
           
-      - name: build react, output in build
+      - name: build angular, output in dist/openai
         run: |
           npm run build
       
