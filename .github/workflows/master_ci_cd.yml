@@ -15,9 +15,9 @@ jobs:
           node-version: 16.x
       - name: npm install
         run: npm install
-     # - name: Test
-     #   run: |
-     #     npm test -- --no-watch --no-progress --browsers=ChromeHeadlessCI
+#      - name: Test
+#        run: |
+#          npm test -- --no-watch --no-progress --browsers=ChromeHeadlessCI
       - name: make .env 
         uses: SpicyPizza/create-envfile@v1.3
         with:
@@ -25,7 +25,7 @@ jobs:
           file_name: .env
           fail_on_empty: false
           
-      - name: build angular, output in dist/openai
+      - name: build react, output in build
         run: |
           npm run build
       
@@ -61,7 +61,7 @@ jobs:
         run: sed -i 's/{docker_user}/${{secrets.DOCKER_USER}}/g' manifests/k8s.yaml
 
       - name: update model name in k8 
-        run: sed -i 's/{model_name}/${{secrets.front-react}}/g' manifests/k8s.yaml
+        run: sed -i 's/{model_name}/${{secrets.MODEL_NAME}}/g' manifests/k8s.yaml
 
       - name: update _ by - 
         run: sed -i 's/_/-/g' manifests/k8s.yaml
