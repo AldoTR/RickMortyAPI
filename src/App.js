@@ -1,4 +1,5 @@
 import imageRickMorty from './img/rick-morty.png';
+import credencialAldo from './credencial/credencialAldo.jpg';
 import './App.css';
 import { useState } from 'react';
 import Characters from './components/Characters';
