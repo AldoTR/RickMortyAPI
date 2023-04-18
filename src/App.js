@@ -1,7 +1,7 @@
 import './index.css';
 import './App.css';
 import imageRickMorty from './img/rick-morty.png';
-import credential from '../credencial-aldotr.jpg';
+import credential from './img/credencial-aldotr.jpg';
 import { useState } from 'react';
 import Characters from './components/Characters';
 
